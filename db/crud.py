@@ -138,13 +138,13 @@ def read_persons_by_dig(
             ).all()
 
             if current_depth <= max_depth and len(id_results) > threshold:
-                print(f"WARN:     🔥 [ID字段异常] 命中 {len(id_results)} 条")
+                print(f"WARN:     🔥 BFS 处于 {current_depth} 层 [ID字段异常] 命中 {len(id_results)} 条")
                 print(f"WARN:     输入值: {list(id_set)}")
 
             results += id_results
 
         # =========================
-        # 🚨 phone 字段
+        # 🚨 phone 字段ß
         # =========================
         if phone_set:
             phone_results = session.exec(
@@ -152,7 +152,7 @@ def read_persons_by_dig(
             ).all()
 
             if current_depth <= max_depth and len(phone_results) > threshold:
-                print(f"WARN:     🔥 [PHONE字段异常] 命中 {len(phone_results)} 条")
+                print(f"WARN:     🔥 BFS 处于 {current_depth} 层 [PHONE字段异常] 命中 {len(phone_results)} 条")
                 print(f"WARN:     输入值: {list(phone_set)}")
 
             results += phone_results
@@ -166,7 +166,7 @@ def read_persons_by_dig(
             ).all()
 
             if current_depth <= max_depth and len(email_results) > threshold:
-                print(f"WARN:     🔥 [EMAIL字段异常] 命中 {len(email_results)} 条")
+                print(f"WARN:     🔥 BFS 处于 {current_depth} 层 [EMAIL字段异常] 命中 {len(email_results)} 条")
                 print(f"WARN:     输入值: {list(email_set)}")
 
             results += email_results
@@ -180,7 +180,7 @@ def read_persons_by_dig(
             ).all()
 
             if current_depth <= max_depth and len(qq_results) > threshold:
-                print(f"WARN:     🔥 [QQ字段异常] 命中 {len(qq_results)} 条")
+                print(f"WARN:     🔥 BFS 处于 {current_depth} 层 [QQ字段异常] 命中 {len(qq_results)} 条")
                 print(f"WARN:     输入值: {list(qq_set)}")
 
             results += qq_results

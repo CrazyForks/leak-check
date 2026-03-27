@@ -110,7 +110,7 @@ def read_persons_by_dig(
         phone_: str | None = None,
         email_: str | None = None,
         qq_: int | None = None,
-        max_depth: int = 3,  # ✅ 最大挖掘深度
+        max_depth: int = 1,  # ✅ 最大挖掘深度
         max_records: int = 100  # ✅ 最大记录数保护（推荐）
 ) -> Sequence["Person"]:
     """

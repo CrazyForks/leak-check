@@ -170,7 +170,7 @@ def get_person_by_dig(body: ModelRequestQuery, session: SessionDep):
             persons = crud.read_persons_by_dig(session, email_=body.q)
 
         case "id":
-            persons = crud.read_persons_by_dig(session, id_=body.q)
+            persons = crud.read_persons_by_dig(session, id_=body.q.upper())
 
         case _:
             raise ValueError(f"未知类型: {body.q}")

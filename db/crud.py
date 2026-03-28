@@ -110,7 +110,12 @@ def read_persons_by_dig(
     """
 
     # 初始化字段集合（当前层）
-    id_set: Set[str] = {id_} if id_ is not None else set()
+    id_set: Set[str] = set()
+    if id_:
+        id_set.add(id_.strip())
+        id_set.add(id_.strip().upper())
+        id_set.add(id_.strip().lower())
+
     phone_set: Set[str] = {phone_} if phone_ is not None else set()
     email_set: Set[str] = {email_} if email_ is not None else set()
     qq_set: Set[int] = {qq_} if qq_ is not None else set()

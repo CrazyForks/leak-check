@@ -33,63 +33,6 @@ def read_counts(session: SessionDep) -> str:
     return str(counts)
 
 
-"""
-查询 单层信息
-"""
-def read_persons_by_id(
-        session: Session,
-        id_: str
-) -> Sequence[Person]:
-    # 查询 身份证号
-    persons = session.exec(
-        select(Person)
-        .options(selectinload(Person.source_obj))
-        .where(Person.id == id_)
-    ).all()
-
-    return persons
-
-def read_persons_by_phone(
-        session: Session,
-        phone_: str
-) -> Sequence[Person]:
-    # 查询 手机号
-    persons = session.exec(
-        select(Person)
-        .options(selectinload(Person.source_obj))
-        .where(Person.phone == phone_)
-    ).all()
-
-    return persons
-
-
-def read_persons_by_email(
-        session: Session,
-        email_: EmailStr
-) -> Sequence[Person]:
-    # 查询 email
-    persons = session.exec(
-        select(Person)
-        .options(selectinload(Person.source_obj))
-        .where(Person.email == email_)
-    ).all()
-
-    return persons
-
-def read_persons_by_qq(
-        session: Session,
-        qq_: int
-) -> Sequence[Person]:
-    # 查询 QQ号
-    persons = session.exec(
-        select(Person)
-        .options(selectinload(Person.source_obj))
-        .where(Person.qq == qq_)
-    ).all()
-
-    return persons
-
-
 def read_persons_by_dig(
         session: Session,
         *,

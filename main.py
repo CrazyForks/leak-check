@@ -101,51 +101,6 @@ def detect_input_type(user_input: str) -> str:
         return "unknown"
 
 
-@app.post("/dig", summary="查询 个人信息“泄漏” 记录", response_model=ModelResponsePersonAggregated)
-def get_person_by_dig(body: ModelRequestQuery, session: SessionDep):
-    # 定义局部变量
-    persons: Sequence[Person] = []
-
-    input_type = detect_input_type(body.q)
-
-    match input_type:
-        case "phone":
-            persons = crud.read_persons_by_dig(session, phone_=body.q)
-        case "qq":
-            persons = crud.read_persons_by_dig(session, qq_=int(body.q))
-        case "email":
-            persons = crud.read_persons_by_dig(session, email_=body.q)
-        case "id":
-            persons = crud.read_persons_by_dig(session, id_=body.q)
-        case _:
-            raise ValueError(f"未知类型: {body.q}")
-
-    # 聚合并去重
-    aggregated = ModelResponsePersonAggregated(
-        id=list({p.id for p in persons if p.id is not None}),
-
-        name=clean_str_set(p.name for p in persons),
-        receiver=clean_str_set(p.receiver for p in persons),
-        nickname=clean_str_set(p.nickname for p in persons),
-        phone=clean_str_set(p.phone for p in persons),
-        address=clean_str_set(p.address for p in persons),
-        car=clean_str_set(p.car for p in persons),
-        email=clean_str_set(p.email for p in persons),
-
-        qq=clean_int_set(p.qq for p in persons),
-        weibo=clean_int_set(p.weibo for p in persons),
-
-        contact=clean_str_set(p.contact for p in persons),
-        company=clean_str_set(p.company for p in persons),
-
-        source=list({
-            p.source_obj.source
-            for p in persons
-            if p.source_obj and p.source_obj.source
-        })
-    )
-    return aggregated
-
 @app.post(
     "/dig/masking",
     summary="查询 个人信息“泄漏” 记录 - 脱敏",

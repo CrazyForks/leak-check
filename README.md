@@ -1,10 +1,16 @@
 ### ✨ “泄漏” 与 “检测” 定义
 您的 “个人信息” 出现在被 “互联网” 广泛传播的 “部分” 数据中.
 
+---
+
 ### 📢 宣言
 1. “不记录”「查询记录」
 2. “不提供”「更多信息」
 3. “别忘记”「舆论监督」
+
+记住: 你有权了解你的数据处于何种状态。
+
+---
 
 ### 🚀 开发
 使用我们的安装脚本, 快速构建开发环境.
@@ -46,6 +52,9 @@ CREATE TABLE person(
     FOREIGN KEY (source_id) REFERENCES source(id)
 );
 ```
+
+---
+
 ### 🗑️ 完全删除
 
 如果需要完全删除:
@@ -55,6 +64,14 @@ CREATE TABLE person(
 rm -rf leak-check/
 ```
 
+---
+
 ### 📬 更新与反馈
 - GitHub 仓库：[https://github.com/garinasset/leak-check](https://github.com/garinasset/leak-check)  
 - Issues & Bug 报告：[https://github.com/garinasset/leak-check/issues](https://github.com/garinasset/leak-check/issues)
+
+---
+
+## 许可证
+
+MIT License

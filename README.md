@@ -1,8 +1,6 @@
 ### ✨ “泄漏” 与 “检测” 定义
 您的 “个人信息” 出现在被 “互联网” 广泛传播的 “部分” 数据中.
 
----
-
 ### 📢 宣言
 1. “不记录”「查询记录」
 2. “不提供”「更多信息」
@@ -12,13 +10,13 @@
 
 ---
 
-### 🚀 开发
+### 🚀 Develop
 使用我们的安装脚本, 快速构建开发环境.
 ```bash
 curl -LsSf https://raw.githubusercontent.com/garinasset/leak-check/refs/heads/main/install.sh | bash
 ```
 
-### 📊 数据库
+### 📊 Database
 本项目不提供 “数据拷贝”, For “数据库”, 您可以采用任何你喜欢的数据库, 本项目采用 ➡️ [SQLite](https://sqlite.org/).
 ```bash
 cd leak-check
